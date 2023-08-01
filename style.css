@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Pacifico');
 :root {
-  --body-color: 48 48 58;
+  /* --body-color: 48 48 58; */
+  --body-color: 58, 42, 82;
   
   --font-color: 255 255 255;
   --highlight-color: 0 0 0;
@@ -102,8 +103,10 @@ button, a, input {
 
 #links-container > a {
   color: rgb(255 255 255 / 80%);
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   text-decoration: none;
+  background-color: #342250;
+  /* background-color: #2b2631; */
 }
 
 #links-container > a:is(:hover, :focus) {
@@ -124,7 +127,7 @@ button, a, input {
   border-bottom-right-radius: 0.2rem;
 }
 
-#user-menu-button {
+/* #user-menu-button {
   height: 47%;
   position: absolute;
   right: 0rem;
@@ -135,12 +138,15 @@ button, a, input {
   padding: 0rem;
   border: none;
   border-radius: 100%;
-}
+} */
 
-#user-menu-button > img {
+.child > img {
   display: flex;
   height: 100%;
-  border-radius: inherit;
+  /* width: 200px; */
+  border-radius: 50%;
+  margin: 20px;
+  margin-left: 60px;
 }
 
 #search-container {
@@ -373,7 +379,7 @@ button, a, input {
 .social-buttons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: right;
+  justify-content: space-between;
   gap: 8px;
 
 }
@@ -1057,7 +1063,7 @@ top: calc(50% - 55px);
 }
 
 h3.txt-ne{
-top: calc(50% + 5px);
+top: calc(53% + 5px);
 text-align: center;
   line-height: 1;
   margin-top: 15px;
@@ -1075,9 +1081,3 @@ text-align: center;
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
-
-
-
-
-
-
