@@ -11,4 +11,5 @@ editableText.addEventListener('input', function(){
 
   localStorage.setItem('savedText',this.textContent);
 })
-
+document.getElementById("currentYear").innerHTML = `@HadiRaza - ${new Date().getFullYear()}`;
+// document.getElementById("currentYear").innerHTML = "Hadi 2023";
