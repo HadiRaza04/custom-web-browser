@@ -6,8 +6,9 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
         <link rel="stylesheet" href="./style.css">
-        <title>New tab</title>
+        <title>Hadi's Chrome</title>
     </head>
     <body>
     <!-- partial:index.partial.html -->
@@ -35,7 +36,7 @@
                                 </div>
                                 <div class='child'>
 <!--                                     <button type="button" id="user-menu-button" style="margin-right: 10%; margin-top: 10%;"> -->
-                                        <img src="dp.png" style="height: 80px; width: 80px; " alt="" />
+                                        <img src="./dp.png" style="height: 80px; width: 80px; " alt="" />
 <!--                                     </button> -->
                                 
                                     <div class="social-buttons">
@@ -56,6 +57,7 @@
                                         </a> -->
                                         <a href="https://github.com/hadiraza04/" target="_blank" class="social-button social-button--github" aria-label="GitHub">
                                             <i class="fab fa-github"></i>
+                                            <!-- <i class="fa-brands fa-github fa-beat"></i> -->
                                         </a>
                                         <!-- <a href="https://codepen.io/rahul-sahni" class="social-button social-button--codepen" aria-label="CodePen">
                                             <i class="fab fa-codepen"></i>
@@ -89,17 +91,16 @@
                             </h3>
                         </a>
                         </div>
-
                         <div id="apps-container">
                             <a href="#" id="link">
-                                <i class="fa-brands fa-stack-overflow"></i>
+                                <i class="fa-brands fa-stack-overflow" style="color: #e09e2b"></i>
                                 <div class="label">
                                     <span class="name">Stack Overflow</span>
                                     <span class="url" contenteditable="true">stackoverflow.com</span>
                                 </div>
                             </a>
                             <a href="https://github.com/hadiraza04" target="_blank" id="link2">
-                                <i class="fa-brands fa-github"></i>
+                                <i class="fa-brands fa-github" style="color: #1c1313"></i>
                                 <div class="label">
                                     <span class="name">Github</span>
                                     <span class="url" contenteditable="true">github.com</span>
@@ -120,14 +121,14 @@
                                 </div>
                             </a>
                             <a href="https://youtube.com" target="_blank">
-                                <i class="fa-brands fa-youtube"></i>
+                                <i class="fa-brands fa-youtube" style="color: #eb1b10"></i>
                                 <div class="label">
                                     <span class="name">YouTube</span>
                                     <span class="url">youtube.com/</span>
                                 </div>
                             </a>
                             <a href="https://spotify.com" target="_blank">
-                                <i class="fa-brands fa-spotify"></i>
+                                <i class="fa-brands fa-spotify" style="color: #2dba1e"></i>
                                 <div class="label">
                                     <span class="name">Spotify</span>
                                     <span class="url">spotify.com</span>
@@ -152,73 +153,46 @@
                 </div>
             </div>
         </div>
+        <div class="time">
+            <!-- <h1 id="current-time"></h1> -->
+            <div class="container">
+                <div class="display-date">
+                  <span id="day">day</span>,
+                  <span id="daynum">00</span>
+                  <span id="month">month</span>
+                  <span id="year">0000</span>
+                </div>
+                <div class="display-time"></div>
+              </div>
+            
+        </div>
+        <div class="date wrapper">
+            <div>
+                <h1 id="current-date"></h1>
+            <header>
+                <p class="current-date"></p>
+                <div class="icons">
+                  <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                  <span id="next" class="material-symbols-rounded">chevron_right</span>
+                </div>
+            </header>
+            </div>
+            <div class="calendar">
+                <ul class="weeks">
+                    <li>Sun</li>
+                    <li>Mon</li>
+                    <li>Tue</li>
+                    <li>Wed</li>
+                    <li>Thu</li>
+                    <li>Fri</li>
+                    <li>Sat</li>
+                </ul>
+                <ul class="days"></ul>
+            </div>
+        </div>
         <p id="currentYear" style="display: block; text-align: center;"></p>
-
-    <script>
-    const urlSpans = document.querySelectorAll('.url');
-
-    urlSpans.forEach(function(urlSpan) {
-        urlSpan.addEventListener('click', function(event) {
-        // Prevent the default behavior of the hyperlink
-        alert('User clicked on URL');
-        event.preventDefault();
-        });
-    });
-
-    </script>
-    <!-- updating the code title and flaticon icon  -->
-    <script>
-    //  get the elements from the DOM
-
-    const savedUrl = localStorage.getItem('url');
-    const nameSpan = document.querySelector('.name');
-    const urlSpan = document.querySelector('.url');
-    const icon = document.querySelector('.fa-stack-overflow');
-    const link = document.querySelector('#link');
-
-    // listen for changes in the content of the name and url spans
-    // nameSpan.addEventListener('input', updateLink);
-    urlSpan.addEventListener('input', updateLink);
-
-    function updateLink() {
-    // update the text content of the name span with the root domain
-    const domain = new URL('http://' + urlSpan.textContent).hostname.replace('www.', '');
-    link.querySelector('.name').textContent = domain;
     
-    // update the href of the link
-    link.href = 'http://' + urlSpan.textContent;
-    
-    // update the icon class
-    const iconClass = 'fa-brands fa-' + domain.split('.')[0];
-    icon.className = iconClass;
-
-    
-
-    // save the URL to local storage
-    localStorage.setItem('url', urlSpan.textContent);
-    }
-
-    // retrieve the saved URL from local storage when the page loads
-    window.addEventListener('load', function() {
-    const savedUrl = localStorage.getItem('url');
-    if (savedUrl) {
-        urlSpan.textContent = savedUrl;
-        updateLink();
-    }
-    });
-
-    </script>
-
-    <script>
-        function googleSearch()
-        {
-            var text=document.getElementById("search").value;
-            var cleanQuery = text.replace(" ","+",text);
-            var url='http://www.google.com/search?q='+cleanQuery;
-        
-            window.location.href=url;
-        }
-        </script>
     <script src='https://codepen.io/Hyperplexed/pen/xxYJYjM/54407644e24173ad6019b766443bf2a6.js'></script>
+    <script src='./app.js'></script>
     </body>
 </html>
